@@ -68,8 +68,8 @@ def fetch_completion(prompt: str, system_prompt: str, config: AssistantConfig | 
     try:
         with request.urlopen(req, timeout=30) as resp:
             parsed = json.loads(resp.read().decode("utf-8"))
-    except (error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-        return f"Request failed: {exc}.\n\n{local_bootstrap_response(prompt)}"
+    except (error.URLError, TimeoutError, json.JSONDecodeError):
+        return f"Request failed.\n\n{local_bootstrap_response(prompt)}"
 
     choices = parsed.get("choices", [])
     if not choices:
