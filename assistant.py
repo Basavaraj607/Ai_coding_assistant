@@ -22,9 +22,9 @@ class AssistantConfig:
     model: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 
-def build_payload(prompt: str, system_prompt: str) -> dict:
+def build_payload(prompt: str, system_prompt: str, model: str) -> dict:
     return {
-        "model": os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+        "model": model,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt},
@@ -53,7 +53,7 @@ def fetch_completion(prompt: str, system_prompt: str, config: AssistantConfig | 
     if not cfg.api_key:
         return local_bootstrap_response(prompt)
 
-    payload = build_payload(prompt, system_prompt)
+    payload = build_payload(prompt, system_prompt, cfg.model)
     body = json.dumps(payload).encode("utf-8")
     req = request.Request(
         f"{cfg.base_url}/chat/completions",

@@ -10,7 +10,7 @@ Minimal starter project for building an AI coding assistant.
 
 ## Quick start
 ```bash
-cd /home/runner/work/Ai_coding_assistant/Ai_coding_assistant
+cd Ai_coding_assistant
 python assistant.py "help me design a code review workflow"
 ```
 
