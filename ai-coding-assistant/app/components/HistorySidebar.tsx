@@ -69,10 +69,10 @@ export default function HistorySidebar({
   return (
     <div className="fixed inset-0 z-40 flex justify-end animate-fade-in bg-black/60 backdrop-blur-xs select-none">
       {/* Backdrop tap to close */}
-      <div className="flex-1" onClick={onClose} />
+      <div className="absolute inset-0" onClick={onClose} />
 
       {/* Sidebar Panel */}
-      <div className="w-full max-w-sm h-full bg-zinc-950 border-l border-zinc-800 flex flex-col shadow-2xl">
+      <div className="relative z-10 w-[85%] sm:w-full sm:max-w-sm h-full bg-zinc-950 border-l border-zinc-800 flex flex-col shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-4">
           <div className="flex items-center gap-2">

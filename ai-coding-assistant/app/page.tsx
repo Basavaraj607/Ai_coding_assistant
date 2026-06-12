@@ -265,31 +265,31 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen bg-black text-zinc-200 overflow-hidden font-sans select-none">
+    <div className="flex flex-col md:flex-row h-screen bg-black text-zinc-200 overflow-hidden font-sans select-none">
       {/* Background radial highlight */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-[40%] h-[40%] rounded-full bg-emerald-950/5 blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[45%] h-[45%] rounded-full bg-blue-950/5 blur-[100px]" />
       </div>
 
-      {/* Sidebar - Compact Desktop Navigator */}
-      <div className="w-16 h-full bg-zinc-950 border-r border-zinc-900 flex flex-col items-center py-6 justify-between shrink-0 z-20">
-        <div className="flex flex-col items-center gap-6">
+      {/* Sidebar - Compact Desktop/Mobile Navigator */}
+      <div className="w-full h-14 md:w-16 md:h-full bg-zinc-950 border-t md:border-t-0 md:border-r border-zinc-900 flex flex-row md:flex-col items-center px-6 md:px-0 py-0 md:py-6 justify-between shrink-0 z-20 order-last md:order-first">
+        <div className="flex flex-row md:flex-col items-center gap-6">
           {/* Brand Icon */}
           <div
             onClick={() => setCurrentResult(null)}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 text-black shadow-lg shadow-emerald-500/10 hover:scale-[1.03] transition-all"
+            className="flex h-9 w-9 md:h-10 md:w-10 cursor-pointer items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 text-black shadow-lg shadow-emerald-500/10 hover:scale-[1.03] transition-all"
             title="SyntaxSentry Workspace"
           >
-            <TerminalIcon size={20} />
+            <TerminalIcon size={18} />
           </div>
 
-          <hr className="w-8 border-zinc-900" />
+          <hr className="hidden md:block w-8 border-zinc-900" />
 
           {/* Action Tabs */}
           <button
             onClick={() => setIsHistoryOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl text-zinc-500 hover:bg-zinc-900 hover:text-zinc-200 transition-all"
+            className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-xl text-zinc-500 hover:bg-zinc-900 hover:text-zinc-200 transition-all"
             title="Analysis history logs"
           >
             <HistoryIcon size={18} />
@@ -297,28 +297,28 @@ export default function Home() {
 
           <button
             onClick={() => setIsSettingsOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl text-zinc-500 hover:bg-zinc-900 hover:text-zinc-200 transition-all"
+            className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-xl text-zinc-500 hover:bg-zinc-900 hover:text-zinc-200 transition-all"
             title="Settings"
           >
             <SettingsIcon size={18} />
           </button>
         </div>
 
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-row md:flex-col items-center gap-4">
           {/* Profile & Logout */}
           <div
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 cursor-help"
+            className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 cursor-help"
             title={`Active: ${user.name} (${user.email})`}
           >
-            <UserIcon size={16} />
+            <UserIcon size={14} />
           </div>
 
           <button
             onClick={handleLogout}
-            className="flex h-9 w-9 items-center justify-center rounded-xl text-zinc-600 hover:bg-rose-950/20 hover:text-rose-400 transition-all"
+            className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-xl text-zinc-650 hover:bg-rose-950/20 hover:text-rose-400 transition-all"
             title="Sign out"
           >
-            <LogoutIcon size={16} />
+            <LogoutIcon size={14} />
           </button>
         </div>
       </div>
